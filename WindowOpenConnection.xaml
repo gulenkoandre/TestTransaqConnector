@@ -1,0 +1,33 @@
+﻿<Window x:Class="TestTransaqConnector.WindowOpenConnection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestTransaqConnector"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="WindowOpenConnection" Height="450" Width="350">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="10" Width="100">
+                    Trading Server
+                </TextBlock>
+                <ComboBox Name="serversComboBox" Width="200" VerticalAlignment="Center">
+                    <sys:String>АО "Финам"</sys:String>
+                    <sys:String>Demo server</sys:String>
+                </ComboBox>                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="10" Width="100">
+                    IP / Domain
+                </TextBlock>
+                <ComboBox Width="200" VerticalAlignment="Center">
+                    <sys:String>tr1.finam.ru</sys:String>
+                    <sys:String>tr2.finam.online</sys:String>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+        
+    </Grid>
+</Window>
