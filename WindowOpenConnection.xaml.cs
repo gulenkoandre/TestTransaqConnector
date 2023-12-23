@@ -22,8 +22,7 @@ namespace TestTransaqConnector
         public WindowOpenConnection()
         {
             InitializeComponent();
-
-            serversComboBox.ItemsSource = App.serversList.Items;
+                        
         }
     }
 }
