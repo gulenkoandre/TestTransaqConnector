@@ -6,27 +6,18 @@
         xmlns:local="clr-namespace:TestTransaqConnector"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="WindowOpenConnection" Height="450" Width="350">
+        Title="WindowOpenConnection" Height="450" Width="450">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="10" Width="100">
                     Trading Server
                 </TextBlock>
-                <ComboBox Name="serversComboBox" Width="200" VerticalAlignment="Center">
-                    <sys:String>АО "Финам"</sys:String>
-                    <sys:String>Demo server</sys:String>
+                <ComboBox Name="serversComboBox" Width="300" VerticalAlignment="Center">
+                    
                 </ComboBox>                
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="10" Width="100">
-                    IP / Domain
-                </TextBlock>
-                <ComboBox Width="200" VerticalAlignment="Center">
-                    <sys:String>tr1.finam.ru</sys:String>
-                    <sys:String>tr2.finam.online</sys:String>
-                </ComboBox>
-            </StackPanel>
+            
         </StackPanel>
         
     </Grid>

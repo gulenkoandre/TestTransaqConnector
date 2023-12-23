@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestTransaqConnector.Structures;
 
 namespace TestTransaqConnector
 {
@@ -14,40 +13,36 @@ namespace TestTransaqConnector
         /// <summary>
         /// Конструктор =======================================================================
         /// </summary>
-        public TradingServerTransaq(string serverName, List<IPDomainPort> iPDomainPort)
+        public TradingServerTransaq()
         {
-            _serverName = serverName;
-
-            _ip_Domain = iPDomainPort;
+            
         }
 
+        #region=========================================Properties============================================
 
         /// <summary>
         /// Наименование сервера Transaq
         /// </summary>
-        public string ServerName
-        {
-            get
-            {
-                return _serverName;
-            }
-        }
-
-        string _serverName;
-
+        public string ServerName { get; set; }
+                
         /// <summary>
-        /// Список серверов Transaq
+        /// IP/Domain Transaq
         /// </summary>
-        public List<IPDomainPort> IP_Domain
-        {
-            get
-            {
-                return _ip_Domain;
-            }
-        }
-        List<IPDomainPort> _ip_Domain;
+        public string IPDomain { get; set; }
+        
+        /// <summary>
+        /// Port для IP/Domain Transaq
+        /// </summary>
+        public string Port { get; set; }
 
+        #endregion
 
+        #region=======================================Methods===============================================
+                
+        public override string ToString() => $"{ServerName} - {IPDomain} : {Port}";
+        
+
+        #endregion
     }
 
 }

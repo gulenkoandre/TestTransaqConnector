@@ -22,7 +22,18 @@ namespace TestTransaqConnector
         public WindowOpenConnection()
         {
             InitializeComponent();
-                        
+
+            //выпадающий список серверов в ComboBox
+            serversComboBox.ItemsSource = new TradingServerTransaq[]
+            {
+                new TradingServerTransaq { ServerName="AO \"Финам\"", IPDomain="tr1.finam.ru", Port="3900" },
+                new TradingServerTransaq { ServerName="AO \"Финам\"", IPDomain="tr2.finam.online", Port="3900" },
+                new TradingServerTransaq { ServerName="(HFT) AO \"Финам\"", IPDomain="hft.finam.ru", Port="13900" },
+                new TradingServerTransaq { ServerName="(HFT) AO \"Финам\"", IPDomain="hft1.finam.ru", Port="13900" },
+                new TradingServerTransaq { ServerName="Demo", IPDomain="tr1-demo5.finam.ru", Port="3939" }
+            };
+
+            serversComboBox.SelectedIndex = 3;
         }
     }
 }
