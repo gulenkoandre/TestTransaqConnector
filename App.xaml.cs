@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Ignore Spelling: App
+
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -14,21 +16,19 @@ namespace TestTransaqConnector
     public partial class App : Application
     {
         #region===================================================Fields========================================================
-        
-        
+
+        public MainWindow mainWindow = new MainWindow();
+
         #endregion
 
         #region===================================================Methods=======================================================
         public void Application_Startup(object sender, StartupEventArgs e)
         {
-           
-
-            MainWindow wnd = new MainWindow();
+                                   
+            mainWindow.Show();
                         
-            wnd.Show();
         }
-
-        
+               
 
         #endregion
     }

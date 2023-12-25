@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Structures\ConnectionLogin.cs" />
     <Compile Include="TradingServerTransaq.cs" />
     <Compile Include="WindowOpenConnection.xaml.cs">
       <DependentUpon>WindowOpenConnection.xaml</DependentUpon>

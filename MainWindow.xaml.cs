@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestTransaqConnector.Structures;
+
 
 namespace TestTransaqConnector
 {
@@ -20,10 +22,43 @@ namespace TestTransaqConnector
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region================================================Constructor==================================================
+
         public MainWindow()
         {
+            _connectionLogin.tradingServerSelected = 0;
+
+            _connectionLogin.login = "";
+
+            _connectionLogin.password = "";
+
             InitializeComponent();
         }
+
+        #endregion
+
+        #region==================================================Properties===================================================
+        /*public ConnectionLogin ConnectionLogin
+        {
+            get
+            {
+                return _connectionLogin;
+            }
+            set
+            {
+                _connectionLogin = value;
+            }
+        }*/
+
+        #endregion
+
+        #region====================================================Fields===================================================
+
+        public ConnectionLogin _connectionLogin = new ConnectionLogin();
+        
+        #endregion
+
+        #region====================================================Methods==================================================
         /// <summary>
         /// Меню Connection - Open Connection
         /// </summary>
@@ -31,12 +66,10 @@ namespace TestTransaqConnector
         /// <param name="e"></param>
         private void OpenConnection_Click(object sender, RoutedEventArgs e)
         {
-            WindowOpenConnection windowOpenConnection = new WindowOpenConnection();
-
+            WindowOpenConnection windowOpenConnection = new WindowOpenConnection(_connectionLogin);
+                        
             windowOpenConnection.ShowDialog();
-
             
-
         }
 
         // <summary>
@@ -47,7 +80,7 @@ namespace TestTransaqConnector
         private void CloseConnection_Click(object sender, RoutedEventArgs e)
         {
             
-
         }
+        #endregion
     }
 }

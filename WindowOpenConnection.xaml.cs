@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TestTransaqConnector.Structures;
 
 namespace TestTransaqConnector
 {
@@ -20,8 +21,9 @@ namespace TestTransaqConnector
     public partial class WindowOpenConnection : Window
     {
         #region================================================Constructor=============================================
-        public WindowOpenConnection()
+        public WindowOpenConnection(ConnectionLogin connectionLogin)
         {
+
             InitializeComponent();
 
             //выпадающий список серверов в ComboBox
@@ -34,14 +36,21 @@ namespace TestTransaqConnector
                 new TradingServerTransaq { ServerName="Demo", IPDomain="tr1-demo5.finam.ru", Port="3939" }
             };
 
-            serversComboBox.SelectedIndex = 0;
+            serversComboBox.SelectedIndex = connectionLogin.tradingServerSelected;
+
+            loginTextBox.Text = connectionLogin.login;
+
+            passwordPassBox.Password = connectionLogin.password;
+
+            passwordTextBox.Text = connectionLogin.password;
+
         }
         #endregion
 
         #region================================================Fields===================================================
 
         private bool passwordBox_Flag=false; //флаг - поле пароля не пустое = true, иначе = false
-
+                
         #endregion
 
         #region=============================================Methods=======================================================
@@ -115,8 +124,27 @@ namespace TestTransaqConnector
                 connectingButton.IsEnabled = false;
             }
         }
-        #endregion
+                
+        private void connectingButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Connecting");
 
-       
+            
+        }
+        
+        private void WindowOpenConnection_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {            
+            //сохранение введенных пользователем параметров соединения
+
+            ((App)Application.Current).mainWindow._connectionLogin.tradingServerSelected = (byte)serversComboBox.SelectedIndex;
+
+            ((App)Application.Current).mainWindow._connectionLogin.login = loginTextBox.Text;
+
+            ((App)Application.Current).mainWindow._connectionLogin.password = passwordPassBox.Password;
+
+            //-----------------------------------------------
+        }
+
+        #endregion
     }
 }

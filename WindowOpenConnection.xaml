@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:TestTransaqConnector"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Connection" Height="450" Width="480">
+        Title="Connection" Height="450" Width="480"
+        Closing="WindowOpenConnection_Closing">
 
     <Window.Resources>
 
@@ -91,7 +92,7 @@
                 <Button x:Name="connectingButton"                        
                         Margin="120,10,0,0" 
                         Padding="5"
-                        IsEnabled="False">
+                        IsEnabled="False" Click="connectingButton_Click">
 
                     Connecting
 
