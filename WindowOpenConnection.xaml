@@ -6,19 +6,100 @@
         xmlns:local="clr-namespace:TestTransaqConnector"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="WindowOpenConnection" Height="450" Width="450">
+        Title="Connection" Height="450" Width="480">
+
+    <Window.Resources>
+
+    </Window.Resources>
+
     <Grid>
         <StackPanel>
+            
+            <!--=======================================Trading Server=================================================-->
+
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="10" Width="100">
                     Trading Server
                 </TextBlock>
-                <ComboBox Name="serversComboBox" Width="300" VerticalAlignment="Center">
-                    
-                </ComboBox>                
+                <ComboBox x:Name="serversComboBox" 
+                          Width="300" 
+                          VerticalAlignment="Center"/>
+
             </StackPanel>
+
+            <!--=======================================Login=================================================-->
             
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="10" Width="100">
+                    Login
+                </TextBlock>
+                <TextBox x:Name="loginTextBox" 
+                         TextChanged="loginTextBox_TextChanged"
+                         Width="300" 
+                         VerticalAlignment="Center" />
+            </StackPanel>
+
+            <!--=======================================Password=================================================-->
+            
+            <StackPanel Orientation="Horizontal">
+                
+                <TextBlock Margin="10" Width="100">
+                    Password
+                </TextBlock>
+                
+                <PasswordBox x:Name="passwordPassBox"
+                             PasswordChanged="passwordPassBox_PasswordChanged"
+                             Visibility="Visible"
+                             Width="300" 
+                             VerticalAlignment="Center" 
+                               />
+                
+                <TextBox x:Name="passwordTextBox" 
+                         TextChanged="passwordTextBox_TextChanged"
+                         Visibility="Hidden"
+                         Margin="-300,0,0,0" 
+                         Width="300" 
+                         VerticalAlignment="Center"/>
+                
+                <Button x:Name="passwordVisible" 
+                        Click="passwordVisible_Click"
+                        Margin="5" 
+                        Height="18" 
+                        Width="18" 
+                        Background="White" 
+                        BorderBrush="White" 
+                        BorderThickness="0">
+                    
+                    <StackPanel Orientation="Horizontal">                        
+                        <Image x:Name ="passUnVisibleImage" 
+                               Visibility="Visible"
+                               Source="C:\Andrey\C# 4 Поток\TestTransaqConnector\password_eye_unvis.png"/>
+                        <Image x:Name ="passVisibleImage"
+                               Visibility="Hidden"
+                               Source="C:\Andrey\C# 4 Поток\TestTransaqConnector\password_eye.png" 
+                               Margin="-16,0,0,0"/>
+                    </StackPanel>
+                    
+                </Button>
+            </StackPanel>
+                
+            <!--=======================================Connecting Button=================================================-->
+
+            <StackPanel Orientation="Horizontal">
+                <!-- активация кнопки по наличию текста в поле Login -->
+                
+                <Button x:Name="connectingButton"                        
+                        Margin="120,10,0,0" 
+                        Padding="5"
+                        IsEnabled="False">
+
+                    Connecting
+
+                </Button>
+                
+            </StackPanel>    
+
         </StackPanel>
-        
+
     </Grid>
 </Window>
